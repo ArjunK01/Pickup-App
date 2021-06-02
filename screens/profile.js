@@ -1,15 +1,10 @@
-//this screen will display profile information\\import React from 'react'
-import React from 'react'
-import {Text} from 'react-native'
+//this screen will display profile information
+import React from "react";
+import { Text } from "react-native";
 
 //inside paranthesis will be props:User
-const profileComponent=()=>{
+const Profile = () => {
+  return <Text>Profile Screen</Text>;
+};
 
-  return(
-    <Text>Profile Screen</Text>
-  )
-
-}
-
-
-export default profileComponent;
+export default Profile;
