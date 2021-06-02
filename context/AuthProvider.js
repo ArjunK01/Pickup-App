@@ -1,7 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import firebase from "../firebase";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
 const AuthContext = createContext();
 
