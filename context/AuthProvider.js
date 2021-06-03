@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import firebase from "../firebase";
+import firebase from "../firebase/firebase";
 
 const AuthContext = createContext();
 
@@ -7,7 +7,6 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
     firebase.auth().onAuthStateChanged(firebaseUser => {
       if (firebaseUser) {
         firebase
