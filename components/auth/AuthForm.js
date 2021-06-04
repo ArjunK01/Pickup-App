@@ -1,13 +1,18 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text, TextInput } from "react-native";
+import React, { useState, useContext } from "react";
+import { StyleSheet, View, Text, TextInput, Button } from "react-native";
 import SignUpForm from "./SignUpForm";
+import { AuthContext } from "../../context/AuthProvider";
 
 export default function AuthForm() {
   const [login, setLogin] = useState(false);
+
+  const { setUser } = useContext(AuthContext);
+
   return (
     <View style={styles.container}>
       <Text style={styles.logo}>PICKUP</Text>
       {login ? null : <SignUpForm />}
+      <Button onPress={() => setUser(true)} title="Login Bypass" />
     </View>
   );
 }
