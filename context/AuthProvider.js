@@ -18,9 +18,7 @@ const AuthProvider = ({ children }) => {
             setUser(doc.data());
           });
       } else {
-        setTimeout(() => {
-          setUser(firebaseUser);
-        }, 300);
+        setUser(null);
       }
     });
   }, []);
