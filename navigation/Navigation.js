@@ -9,9 +9,22 @@ import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import Login from "../screens/Login";
 import { View, StyleSheet } from "react-native";
+import LogIn from "../components/auth/LoginForm"
+import SignUpForm from "../components/auth/SignUpForm"
 
 const Tab = createBottomTabNavigator();
 const Stack= createStackNavigator();
+const LoginStack= createStackNavigator();
+
+const entryStack=()=>{
+  return(
+    <LoginStack.Navigator>
+      <LoginStack.Screen name="Login" component={LogIn}/>
+      <LoginStack.Screen name="Sign Up" component={SignUpForm}/>
+  
+    </LoginStack.Navigator>
+  )
+}
 
 const homeStack=()=>{
   return (
