@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import { black, red } from "ansi-colors";
 
+
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +21,8 @@ export default function SignUpForm() {
           placeholder="Last"
         />
       </View>
+
+      
 
       <TextInput
         style={styles.input}

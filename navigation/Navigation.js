@@ -13,11 +13,11 @@ import { View, StyleSheet } from "react-native";
 const Tab = createBottomTabNavigator();
 const Stack= createStackNavigator();
 
-const messageTransition=()=>{
+const homeStack=()=>{
   return (
     <Stack.Navigator>
-      <Stack.Screen names="Home" component={Home}/>
-      <Stack.Screen names="Messages" component={Messages}/>
+      <Stack.Screen name="Home" component={Home}/>
+      <Stack.Screen name="Messages" component={Messages}/>
 
     </Stack.Navigator>
   )
@@ -34,7 +34,7 @@ export default function Navigation() {
         </View>
       ) : (
         <Tab.Navigator>
-          <Tab.Screen name="Home" component={messageTransition} />
+          <Tab.Screen name="Home" component={homeStack} />
           <Tab.Screen name="Finder" component={Finder}/>
           <Tab.Screen name="Profile" component={Profile} />
         </Tab.Navigator>
