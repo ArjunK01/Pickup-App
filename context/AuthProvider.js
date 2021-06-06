@@ -7,7 +7,8 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(firebaseUser => {
+    let unsubscribe = firebase.auth().onAuthStateChanged(firebaseUser => {
+      console.log("In fireabse auth state change");
       if (firebaseUser) {
         firebase
           .firestore()
@@ -21,6 +22,7 @@ const AuthProvider = ({ children }) => {
         setUser(null);
       }
     });
+    return unsubscribe();
   }, []);
 
   return (

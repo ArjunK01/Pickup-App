@@ -1,11 +1,11 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
-import AuthForm from "../components/auth/AuthForm";
+import Auth from "../components/auth/Auth";
 
 export default function Login() {
   return (
     <View style={styles.container}>
-      <AuthForm />
+      <Auth />
     </View>
   );
 }
