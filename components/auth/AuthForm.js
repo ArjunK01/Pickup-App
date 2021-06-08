@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
@@ -9,8 +9,10 @@ import {
 } from "react-native";
 import { black, red, white } from "ansi-colors";
 import firebase from "../../firebase/firebase";
+import { AuthContext } from "../../context/AuthProvider";
 
 export default function AuthForm() {
+  const { user } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -33,7 +35,16 @@ export default function AuthForm() {
   };
 
   const loginUser = () => {
-    email && password && auth.signInWithEmailAndPassword(email, password);
+    email &&
+      password &&
+      auth
+        .signInWithEmailAndPassword(email, password)
+        .catch(err => console.log(err));
+  };
+  const loginBypass = () => {
+    auth
+      .signInWithEmailAndPassword("Obamna@gmail.com", "Password")
+      .catch(err => console.log(err));
   };
 
   const signUpForm = () => {
@@ -101,6 +112,12 @@ export default function AuthForm() {
         <Button
           title="Don't have an account? Sign In"
           onPress={() => setLogin(false)}
+        />
+        <Button
+          title="Quick Log In"
+          onPress={() => {
+            loginBypass();
+          }}
         />
       </View>
     );
