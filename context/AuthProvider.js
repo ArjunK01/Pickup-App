@@ -8,6 +8,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(firebaseUser => {
+      console.log("In fireabse auth state change");
       if (firebaseUser) {
         firebase
           .firestore()
@@ -15,6 +16,7 @@ const AuthProvider = ({ children }) => {
           .doc(firebaseUser.uid)
           .get()
           .then(function(doc) {
+
             setUser(doc.data());
           });
       } else {
