@@ -28,7 +28,7 @@ export default function AuthForm() {
       console.log("email", email);
       db.collection("Users")
         .doc(newUser.user.uid)
-        .set({ name });
+        .set({ name,email });
     } catch (error) {
       console.log(error);
     }
@@ -110,7 +110,7 @@ export default function AuthForm() {
           <Text style={styles.btnText}>Log In</Text>
         </TouchableOpacity>
         <Button
-          title="Don't have an account? Sign In"
+          title="Don't have an account? Sign Up"
           onPress={() => setLogin(false)}
         />
         <Button
