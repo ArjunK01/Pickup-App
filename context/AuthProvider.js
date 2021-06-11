@@ -5,6 +5,7 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userID,setUserId]= useState('')
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -18,6 +19,7 @@ const AuthProvider = ({ children }) => {
           .then(function(doc) {
 
             setUser(doc.data());
+            setUserId(firebaseUser.uid)
           });
       } else {
         setUser(null);
@@ -26,7 +28,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser,userID }}>
       {children}
     </AuthContext.Provider>
   );

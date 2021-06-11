@@ -2,6 +2,7 @@ import { useScrollToTop } from "@react-navigation/native";
 import React,{useEffect,useState} from "react";
 import { View, Text, Button,FlatList, ScrollView,StyleSheet, ActivityIndicator} from "react-native";
 import firebase from '../firebase/firebase'
+import EventClickable from '../components/EventClickable'
 
 
 const Home = ({navigation}) => {
@@ -43,7 +44,7 @@ const Home = ({navigation}) => {
       data={events}
       renderItem={({ item }) => (
         <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text> {item.eventName}</Text>
+          <EventClickable name={item.eventName}/>
         </View>
       )}
     />
