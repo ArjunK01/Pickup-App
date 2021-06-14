@@ -35,30 +35,22 @@ const Home = ({navigation}) => {
 
   return (
     <View>
-      
-
-
-      <Button title="Messages" onPress={()=>{navigation.navigate("Messages")}}/>
-
+    <View>
+      <Text>Upcoming Events</Text>
       <FlatList
       data={events}
       renderItem={({ item }) => (
         <View style={{ height: 50, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <EventClickable name={item.eventName}/>
+          <EventClickable name={item.eventName} navigator={navigation}/>
         </View>
-      )}
-    />
-      
-
-      
-
-     
-      
-      
-
-      
-      
+      )}/>
     </View>
+    <View>
+      <Text>Group Activity</Text>
+      <View style={styles.container}></View>
+    </View>
+    </View>
+    
   );
 };
 

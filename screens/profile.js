@@ -20,6 +20,8 @@ const Profile = () => {
   return (
     <View>
       <Text>Profile Screen</Text>
+      <Text>{user.name}</Text>
+      <Text>{userID}</Text>
       <Button title="Sign Out" onPress={() => signOut()} />
       <Button title="test"  onPress={()=>doThing()}/>
     </View>
