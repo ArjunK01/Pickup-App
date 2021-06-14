@@ -18,6 +18,9 @@ import {Ionicons} from '@expo/vector-icons'
 
 
 
+
+
+
 const Tab = createBottomTabNavigator();
 const Stack= createStackNavigator();
 const LoginStack= createStackNavigator();
@@ -37,7 +40,7 @@ const homeStack=()=>{
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} options={({navigation})=>({
         headerTitle:()=><Button title="Home" onPress={()=>{console.log("refresh")}}/>,
-        headerRight:()=><Button title="Messages" onPress={()=>{navigation.navigate("Messages")}}/>
+        headerRight:()=><TouchableOpacity onPress={()=>navigation.navigate("Messages")}><Ionicons name="chatbox" size={24}/></TouchableOpacity>
       })}/>
       <Stack.Screen name="Messages" component={Messages}/>
       <Stack.Screen name="OtherProfile" component={OtherProfile}/>

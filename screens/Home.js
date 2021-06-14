@@ -5,6 +5,7 @@ import firebase from '../firebase/firebase'
 import EventClickable from '../components/EventClickable'
 
 
+
 const Home = ({navigation}) => {
   const [events, setEvents]= useState([])
   const [loading, setLoading]=useState(true)
@@ -47,7 +48,7 @@ const Home = ({navigation}) => {
     </View>
     <View>
       <Text>Group Activity</Text>
-      <View style={styles.container}></View>
+      
     </View>
     </View>
     
